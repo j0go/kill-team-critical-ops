@@ -1,20 +1,56 @@
 [
     {
-        "letter": "A",
-        "name" : "Loot",
-        "rule": "Operatives can perform the following mision action: <h5><span>Loot</span><span>1AP</span></h5>An operative can perform this action while it controls an objective marker that has not been looted during this Turning Point. If it does so, that objective marker has been looted during this Turning Point. Each objective marker can be looted a maximum of three times during the battle.",
-        "objective" : "Each time a friendly operative performs the **Loot** action, you score 1VP."
-    },
-    {
-        "letter": "B",
+        "letter": "1",
         "name" : "Secure",
-        "rule": "Operatives can perform the following mision action: <h5><span>Secure</span><span>1AP</span></h5>An operative can perform this action while it controls an objective marker. Until the enemy kill team secures that objective marker, that objective marker is secured by your kill team.",
-        "objective" : "At the end of each Turning Point, for each objective marker secured by your kill team, you score 1VP."
+        "rule": "Operatives can perform the following mision action: <h5><span>SECURE</span><span>1AP</span></h5> \n\n- One objective marker the active operative controls is secured by your kill team until the enemy kill team secures that objective marker. \n- An operative cannot perform this action during the first tuning point, or while within the  control range of an enemy operative.",   
+        "objective" : " At the end of each turning point after the first: \n\n- If any object markers are secured by your kill team, you score 1VP. \n- If more objective markers are secured by your kill team than by the opponent's kill team, you score 1 VP."
     },
     {
-        "letter": "C",
-        "name" : "Capture",
-        "rule": "**Capture:** At the end of each Turning Point (before determining VPs), each objective marker friendly operatives control is captured by your kill team. While an objective marker is captured by your kill team, it stays under their control, even if no friendly operatives are within <i class='circle'></i> of it. If any enemy operatives control that objective marker following the normal rules for controlling objective markers, it is no longer captured by your kill team.",
-        "objective" : "At the end of each Turning Point, for each objective marker captured by your kill team, you score 1VP."
+        "letter": "2",
+        "name" : "Loot",
+        "rule": "Operatives can perform the following mision action: <h5><span>LOOT</span><span>1AP</span></h5>\n\n- One objective marker the active operative controls is looted.\n- An operative cannot perform this action during the first turing point, while within control range of an enemy operative, or if that objective marker has already been looted during this turning point",
+        "objective" : "Whenever a friendly operative performs the **Loot** action, you score 1VP (to a maximum of 2VP per turning point)."
+    },
+    {
+        "letter": "3",
+        "name" : "Transmission ",
+        "rule": "Operatives can perform the following mision action: <h5><span>INITIATE TRANSMISSION</span><span>1AP</span></h5>\n\n- One objective marker the active operative controls is transmitting until the start of the next turning point.\n- An operative cannot perform this action during the first turning point, or while within control range of an enemy operative.",
+        "objective" : " At the end of each turning point after the first:\n\n- If friendly operatives control any transmitting object markers, you score 1VP.\n- If friendly operatives control more transmitting objective markers than enemy operatives do, you score 1VP."
+    },
+    {
+        "letter": "4",
+        "name" : "Upload",
+        "rule": "Operatives can perform the following mision action: <h5><span>UPLOAD</span><span>1AP</span></h5>\n\n- Remove all of your opponent's Upload points (if any) from an objective marker the active operative controls.\n- Then that objective marker gains 1 of your Upload points, unless it's already gained 1 of your Upload points during this turning point, or you've already scored from that objective marker. Use a dice as a token to keep track of your Upload points at that objective marker.\n- An operative cannot perform this action during the first turning point, or while within control range of an enery operative.",
+        "objective" : "At the end of each turning point after the first, you can score from any objective markers that have 1 or more of your Upload points. For each that you do, remove all of your Upload points from it - you score the same number of VP. You can only score from each objective marker once, and note that friendly operatives don't have to control that objective marker to score from it."
+    },
+    { 
+        "letter": "5",
+        "name" : "Intel",
+        "rule": "Operatives can perform the following mision action: <h5><span>COMPILE INTEL</span><span>1AP</span></h5>\n\n- One objective marker the active operative controls gains 1 Intel point. Use a dice as a token to keep track of Intel points at that objective marker.\n- An operative cannot perform this action during the first turning point, while within control range of an enemy operative, or if that objective marker has already gained an Intel point during this turning point. \n<h4>ADDITIONAL RULES</h4>In each turning point after the first, the **Pick Up** Marker action can be performed upon each objective marker that has at least 1 Intel point. If it's performed, that marker cannot gain any more Intel points.",
+        "objective" : "At the end of the fourth turning point, for each objective marker friendly operatives control, you score a number of VP equal to its Intel points (i.e. 0-3)."
+    },
+    {
+        "letter" : "6",
+        "name" : "Extraction (Temp)",
+        "rule": "Operatives can perform the following mision action: <h5><span>SEARCH</span><span>1AP</span></h5>\n\n- One objective marker the active operative controls is searched. If it's the last objective marker to be searched, that marker becomes the extraction objective marker.\n- An operative cannot perform this action during the first turning point, while within control range of an enemy operative, or if that objective marker has already been searched. \n<h4>ADDITIONAL RULES</h4>The **Pick Up** Marker action can be performed upon the extraction objective marker. While an operative is carrying that marker, worsen the Hit stat of its weapons by 1, it cannot be removed and set up again more than 6\" away, and it cannot perform Charge or Dash actions.",
+        "objective" : "Whenever a friendly operative performs the **Search** action, you score 1VP if it's the first or third objective marker searched, or 2VP if it's the second.\n\n At the end of each turning point after the first if a friendly operative controls the extraction objective marker, you score 1VP, or 2VP if it's the fourth turning point."
+    },
+    {
+        "letter" : "7",
+        "name" : "Sabotage",
+        "rule": "Operatives can perform the following mision action: <h5><span>SABOTAGE</span><span>1AP</span></h5>\n\n- If the active operative controls the objective marker wholly within your opponent's territory, that marker is sabotaged.\n- An operative cannot perform this action during the first turning point, while within control range of an enemy operative, or if that objective marker has already been sabotaged during this turning point.",   
+        "objective": "Whenever a friendly operative performs the **Sabotage** action, you score 1VP.\n\n At the end of each turning point after the first, you score 1YP for each of the following that friendly operatives control:\n\n- The objective marker wholly within your territory (unless it's been sabotaged this turning point).\n- The objective marker on the centreline.\n\nYou can score a maximum of 2VP from this op per turning point."
+    },
+    {
+        "letter": "8",
+        "name" : "Power Surge",
+        "rule": "Operatives can perform the following mision action: <h5><span>SEARCH</span><span>1AP</span></h5>\n\n- One surged objective marker the active operative controls is rerouted.\n- An operative cannot perform this action during the first turning point, while within control range of an enemy operative, or if that objective marker has already been rerouted. \n<h5>ADDITIONAL RULES</h5> As a <strong>STRATEGIC GAMBIT</strong> in each turning point after the first, one player selects one objective marker to be surged until the start of the next turning point (they cannot select one previously surged). The player who doesn't have initiative selects first, then players alternate each turning point thereafter.",
+        "objective": "Whenever a friendly operative performs the **Reroute Power** action, you score 1VP. \n\nAt the end of each turning point after the first: if friendly operatives control the surged objective marker, you score 1VP; if friendly operatives control more objective markers than enemy operatives do, you score 1VP. \n\nYou can score a maximum of 2VP from this op per turning point."
+    },
+    {
+        "letter": "9",
+        "name": "Coordinates",
+        "rule": "Operatives can perform the following mision action: <h5><span>INPUT COORDINATES</span><span>1AP</span></h5>\n\n- One objective marker the active operative controls gains 1 of your Objective points. Use dice as a token to keep track of your Objective points at that objective marker.\n- An operative cannot perform this action during the first turning point, while within control range of an enemy operative, or if that objective marker has already gained 1 of your Objective points during this turning point",
+        "objective": "At the end of the fourth turning point:\n\n- For each objective marker that has at least 1 of your Objective points, you score 1VP, or 2VP if that objective marker is wholly within your opponent's territory.\n- For each objective marker that has more of your Objective points than your opponent's, you score 1VP."
     }
 ]

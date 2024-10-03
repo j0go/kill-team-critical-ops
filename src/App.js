@@ -50,9 +50,9 @@ export default function App() {
   function generateMission(choice) {
     let ranMap =
       mapType === "open"
-        ? Math.floor(Math.random() * 9)
+        ? Math.floor(Math.random() * 6)
         : Math.floor(Math.random() * 10);
-    let ranMission = Math.floor(Math.random() * 3);
+    let ranMission = Math.floor(Math.random() * 9);
     localStorage.setItem("savedMap", ranMap);
     localStorage.setItem("savedMission", ranMission);
     localStorage.setItem("savedMapType", mapType);
@@ -175,18 +175,48 @@ export default function App() {
             changeTab("all");
           }}
         >
-          All Tac Ops
+          Tac Ops
         </div>
+        {/* <div
+          className={`tab ${tab === "primary" ? "active" : ""}`}
+          onClick={() => {
+            changeTab("primary");
+          }}
+        >
+          Primary Ops
+        </div> */}
         <div
           className={`tab ${tab === "saved" ? "active" : ""}`}
           onClick={() => {
             changeTab("saved");
           }}
         >
-          Saved Tac Ops ({savedCards.length}/3)
+          Chosen Ops
         </div>
       </div>
       <div className={`tab-body active-${tab}`}>
+        {/* <div className="primary">
+          <div className="primary-cards card-set">
+            <div className="card primary">
+              <div className="archetype">KillOps</div>
+              <div className="footer">
+                <div
+                  className="btn select"
+                  onClick={() => addPrimary("killOps")}
+                >
+                  Add
+                </div>
+              </div>
+            </div>
+            <div className="card primary">
+              <div className="archetype">TacOps</div>
+            </div>
+            <div className="card primary">
+              <div className="archetype">CritOps</div>
+            </div>
+
+          </div>
+        </div> */}
         <div className="all">
           <div className="tacops-filters">
             <div className="filter-group">
@@ -196,14 +226,6 @@ export default function App() {
                   setArchetype(e.target.value);
                 }}
               >
-                <optgroup label="Shared">
-                  <option key="all" value="">
-                    All
-                  </option>
-                  <option key="Faction" value="faction">
-                    Faction (Generic)
-                  </option>
-                </optgroup>
                 <optgroup label="Archetype">
                   <option key="Security" value="security">
                     Security
@@ -216,95 +238,6 @@ export default function App() {
                   </option>
                   <option key="Infiltration" value="infiltration">
                     Infiltration
-                  </option>
-                </optgroup>
-                <optgroup label="Bespoke Teams">
-                <option key="blades-of-khaine" value="blades-of-khaine">
-                    Blades of Khaine
-                  </option>
-                  <option key="blooded" value="blooded">
-                    Blooded
-                  </option>
-                  <option key="chaos-cult" value="chaos-cult">
-                    Chaos Cult
-                  </option>
-                  <option key="corsair-voidscarred" value="corsair-voidscarred">
-                    Corsair Voidscarred
-                  </option>
-                  <option
-                    key="elucidian-starstrider"
-                    value="elucidian-starstrider"
-                  >
-                    Elucidian Starstrider
-                  </option>
-                  <option key="exaction-squad" value="exaction-squad">
-                    Exaction Squad
-                  </option>
-                  <option key="farstalker-kinband" value="farstalker-kinband">
-                    Farstalker Kinband
-                  </option>
-                  <option key="fellgor-ravagers" value="fellgor-ravagers">
-                    Fellgor Ravagers
-                  </option>
-                  <option key="gellerpox" value="gellerpox">
-                    Gellerpox Infected
-                  </option>
-                  <option key="hand-of-the-archon" value="hand-of-the-archon">
-                    Hand of the Archon
-                  </option>
-                  <option key="hearthkyn-salvager" value="hearthkyn-salvager">
-                    Hearthkyn Salvager
-                  </option>
-                  <option key="hierotek" value="hierotek">
-                    Hierotek Circle
-                  </option>
-                  <option key="hunter-clade" value="hunter-clade">
-                    Hunter Clade
-                  </option>
-                  <option
-                    key="imperial-navy-breachers"
-                    value="imperial-navy-breachers"
-                  >
-                    Imperial Navy Breachers
-                  </option>
-                  <option key="inquisitorial-agent" value="inquisitorial-agent">
-                    Inquisitorial Agent
-                  </option>
-                  <option key="intercessors" value="intercessors">
-                    Intercession Squad
-                  </option>
-                  <option key="kasrkin" value="kasrkin">
-                    Kasrkin
-                  </option>
-                  <option key="kommandos" value="kommandos">
-                    Kommandos
-                  </option>
-                  <option key="legionary" value="legionary">
-                    Legionaries
-                  </option>
-                  <option key="novitiates" value="novitiates">
-                    Novitiates
-                  </option>
-                  <option key="pathfinders" value="pathfinders">
-                    Pathfinders
-                  </option>
-                  <option key="phobos" value="phobos">
-                    Phobos Strike Team
-                  </option>
-                  <option key="scout-squad" value="scout-squad">
-                    Scout Squad
-                  </option>
-                  <option key="veteran-guardsmen" value="veteran-guardsmen">
-                    Veteran Guardsmen
-                  </option>
-                  <option key="void-dancer-troupe" value="void-dancer-troupe">
-                    Void-dancer Troupe
-                  </option>
-                  <option key="warpcoven" value="warpcoven">
-                    Warpcoven
-                  </option>
-                  <option key="wyrmblade" value="wyrmblade">
-                    Wyrmblade
                   </option>
                 </optgroup>
               </select>
@@ -353,7 +286,7 @@ export default function App() {
                           Remove
                         </div>
                       ) : (
-                        savedCards.length < 3 && (
+                        savedCards.length < 1 && (
                           <div
                             className="btn select"
                             onClick={() => {
@@ -385,9 +318,8 @@ export default function App() {
               .map((tacOp) => {
                 return (
                   <div
-                    className={`tacop card ${
-                      hiddenCards.includes(tacOp.name) ? `hidden` : ``
-                    } ${tacOp.archetype}`}
+                    className={`tacop card ${hiddenCards.includes(tacOp.name) ? `hidden` : ``
+                      } ${tacOp.archetype}`}
                     key={tacOp.archetype + tacOp.name}
                   >
                     <div className="visibility">
@@ -433,6 +365,64 @@ export default function App() {
                   </div>
                 );
               })}
+
+            <div
+              className={`tacop card ${hiddenCards.includes("primary") ? `hidden` : ``}`}
+            >
+              <div className="visibility">
+                <div
+                  className="hide-btn icon"
+                  onClick={() => toggleCardVisibility("primary")}
+                ></div>
+                <div
+                  className="show-btn icon"
+                  onClick={() => toggleCardVisibility("primary")}
+                ></div>
+              </div>
+              <div className="hidden-label">
+                <span>Hidden</span>
+              </div>
+              <div className="inner">
+                <div className="archetype">Primary</div>
+
+                <div className="middle">
+                  <h4>Select a Primary</h4>
+                  <input type="radio" id="primary-killops" name="primary" value={"KillOps"} />
+                  <label for="primary-killops">KillOps</label><br></br>
+                  <input type="radio" id="primary-killops" name="primary" value={"TacOps"} />
+                  <label for="primary-killops">TacOps</label><br></br>
+                  <input type="radio" id="primary-killops" name="primary" value={"CritOps"} />
+                  <label for="primary-killops">CritOps</label><br></br>
+                </div>
+                <div className="footer">
+                  {/* <div
+                    className="btn select"
+                    onClick={() => removeCard(tacOp.name)}
+                  >
+                    Remove
+                  </div> */}
+                </div>
+              </div>
+            </div>
+            <div
+              className={`tacop card`}
+            >
+              <div className="inner">
+                <div className="archetype">KillOps</div>
+
+                <div className="middle">
+                  <img src="./img/killops.jpg" alt="KillOps" />
+                </div>
+                {/* <div className="footer">
+                  <div
+                    className="btn select"
+                    onClick={() => removeCard("")}
+                  >
+                    Reset
+                  </div>
+                </div> */}
+              </div>
+            </div>
           </div>
         </div>
         <div
@@ -471,10 +461,11 @@ export default function App() {
                   type="checkbox"
                   onChange={() => toggleMapType()}
                   checked={checked}
+                  disabled={true}
                 />
                 <span className="slider round"></span>
               </label>
-              <div className="label cq">Close Quarters</div>
+              <div className="label cq">Close Quarters (Currently Unavailable)</div>
             </div>
           </div>
           <div className="mission-cards card-set">
@@ -516,12 +507,12 @@ export default function App() {
                   <div className="archetype">{map.name}</div>
 
                   <div className="middle">
-                    <img src={map.file} alt=""/>
+                    <img src={map.file} alt="" />
                   </div>
                 </div>
               );
             })}
-            {mapsData.close_quarters.map((map) => {
+            {/* {mapsData.close_quarters.map((map) => {
               return (
                 <div className={"card map"} key={map.name}>
                   <div className="archetype">{map.name}</div>
@@ -531,7 +522,7 @@ export default function App() {
                   </div>
                 </div>
               );
-            })}
+            })} */}
             <div className={"card"}>
               <div className="archetype">Map Card Key</div>
               <div className="middle">
@@ -576,7 +567,7 @@ export default function App() {
                   {mapsData[savedMapType][savedMap].name}
                 </div>
                 <div className="middle">
-                  <img src={mapsData[savedMapType][savedMap].file}  alt=""/>
+                  <img src={mapsData[savedMapType][savedMap].file} alt="" />
                 </div>
               </div>
               <div className={"card"}>
@@ -621,7 +612,7 @@ export default function App() {
             </p>
             <h2>Changelog</h2>
             <ul>
-            <li>
+              <li>
                 <b>28 March 2024</b> Added Scout Squad, Blades Of Khaine
               </li>
               <li>

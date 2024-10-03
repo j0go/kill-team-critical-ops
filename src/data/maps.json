@@ -1,40 +1,28 @@
 {
   "open": [
     {
-      "name": "1. Sector",
-      "file": "./img/map-1.svg"
+      "name": "Map 1",
+      "file": "./img/map-1.jpg"
     },
     {
-      "name": "2. Centre",
-      "file": "./img/map-2.svg"
+      "name": "Map 2",
+      "file": "./img/map-2.jpg"
     },
     {
-      "name": "3. Flank",
-      "file": "./img/map-3.svg"
+      "name": "Map 3",
+      "file": "./img/map-3.jpg"
     },
     {
-      "name": "4. Strait",
-      "file": "./img/map-4.svg"
+      "name": "Map 4",
+      "file": "./img/map-4.jpg"
     },
     {
-      "name": "5. Battleground",
-      "file": "./img/map-5.svg"
+      "name": "Map 5",
+      "file": "./img/map-5.jpg"
     },
     {
-      "name": "6. Boundary",
-      "file": "./img/map-6.svg"
-    },
-    {
-      "name": "7. Junction",
-      "file": "./img/map-7.svg"
-    },
-    {
-      "name": "8. Approach",
-      "file": "./img/map-8.svg"
-    },
-    {
-      "name": "9. Front Line",
-      "file": "./img/map-9.svg"
+      "name": "Map 6",
+      "file": "./img/map-6.jpg"
     }
   ],
   "close_quarters": [
